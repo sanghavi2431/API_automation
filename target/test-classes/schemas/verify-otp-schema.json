@@ -1,0 +1,365 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "type": "object",
+
+  "required": [
+    "success",
+    "results"
+  ],
+
+  "properties": {
+
+    "success": {
+      "type": "boolean"
+    },
+
+    "results": {
+
+      "type": "object",
+
+      "required": [
+        "user",
+        "token",
+        "user_id",
+        "medusa_token",
+        "region_id",
+        "cart_id",
+        "medusa_sync_status"
+      ],
+
+      "properties": {
+
+        "token": {
+          "type": "string"
+        },
+
+        "user_id": {
+          "type": "integer"
+        },
+
+        "medusa_token": {
+          "type": "string"
+        },
+
+        "region_id": {
+          "type": "string"
+        },
+
+        "cart_id": {
+          "type": "string"
+        },
+
+        "medusa_sync_status": {
+          "type": "string"
+        },
+
+        "user": {
+
+          "type": "object",
+
+          "required": [
+            "id",
+            "role_id",
+            "name",
+            "email",
+            "shop_password",
+            "remember_token",
+            "mobile",
+            "city",
+            "pincode",
+            "address",
+            "avatar",
+            "fb_id",
+            "gp_id",
+            "ref_code",
+            "sponsor_id",
+            "woloo_id",
+            "subscription_id",
+            "expiry_date",
+            "voucher_id",
+            "gift_subscription_id",
+            "lat",
+            "lng",
+            "otp",
+            "status",
+            "settings",
+            "created_at",
+            "updated_at",
+            "deleted_at",
+            "gender",
+            "is_first_session",
+            "dob",
+            "is_thirst_reminder",
+            "IsVtionUser",
+            "thirst_reminder_hours",
+            "is_blog_content_notification",
+            "aadhar_url",
+            "pan_url",
+            "state",
+            "alternate_mob",
+            "isRegister",
+            "isFreeTrial"
+          ],
+
+          "properties": {
+
+            "id": {
+              "type": "integer"
+            },
+
+            "role_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "name": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "email": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "shop_password": {
+              "type": "string"
+            },
+
+            "remember_token": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "mobile": {
+              "type": "string"
+            },
+
+            "city": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "pincode": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "address": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "avatar": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "fb_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "gp_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "ref_code": {
+              "type": "string"
+            },
+
+            "sponsor_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "woloo_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "subscription_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "expiry_date": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "voucher_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "gift_subscription_id": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "lat": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+
+            "lng": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+
+            "otp": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "status": {
+              "type": "string"
+            },
+
+            "settings": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "created_at": {
+              "type": "string"
+            },
+
+            "updated_at": {
+              "type": "string"
+            },
+
+            "deleted_at": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "gender": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "is_first_session": {
+              "type": "integer"
+            },
+
+            "dob": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "is_thirst_reminder": {
+              "type": "integer"
+            },
+
+            "IsVtionUser": {
+              "type": "string"
+            },
+
+            "thirst_reminder_hours": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+
+            "is_blog_content_notification": {
+              "type": "integer"
+            },
+
+            "aadhar_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "pan_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "state": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "alternate_mob": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+
+            "isRegister": {
+              "type": "integer"
+            },
+
+            "isFreeTrial": {
+              "type": "integer"
+            }
+          },
+
+          "additionalProperties": false
+        }
+      },
+
+      "additionalProperties": false
+    }
+  },
+
+  "additionalProperties": false
+}

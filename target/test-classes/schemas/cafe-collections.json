@@ -1,0 +1,146 @@
+{
+  "type": "object",
+  "required": ["collections", "count", "offset", "limit"],
+  "additionalProperties": false,
+
+  "properties": {
+
+    "collections": {
+      "type": "array",
+
+      "items": {
+
+        "type": "object",
+
+        "required": [
+          "id",
+          "title",
+          "metadata",
+          "sales_channels"
+        ],
+
+        "additionalProperties": false,
+
+        "properties": {
+
+          "id": {
+            "type": "string"
+          },
+
+          "title": {
+            "type": "string"
+          },
+
+          "metadata": {
+            "type": "object",
+
+            "required": [
+              "image"
+            ],
+
+            "additionalProperties": false,
+
+            "properties": {
+
+              "image": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+
+          "sales_channels": {
+
+            "type": "array",
+
+            "items": {
+
+              "type": "object",
+
+              "required": [
+                "id",
+                "name",
+                "description",
+                "is_disabled",
+                "metadata",
+                "created_at",
+                "updated_at",
+                "deleted_at"
+              ],
+
+              "additionalProperties": false,
+
+              "properties": {
+
+                "id": {
+                  "type": "string"
+                },
+
+                "name": {
+                  "type": "string"
+                },
+
+                "description": {
+                  "type": "string"
+                },
+
+                "is_disabled": {
+                  "type": "boolean"
+                },
+
+                "metadata": {
+                  "type": [
+                    "object",
+                    "null"
+                  ],
+
+                  "properties": {
+
+                    "mobile": {
+                      "type": "integer"
+                    },
+
+                    "estimateDeliveryTime": {
+                      "type": "integer"
+                    }
+                  },
+
+                  "additionalProperties": false
+                },
+
+                "created_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+
+                "updated_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+
+                "deleted_at": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "count": {
+      "type": "integer"
+    },
+
+    "offset": {
+      "type": "integer"
+    },
+
+    "limit": {
+      "type": "integer"
+    }
+  }
+}

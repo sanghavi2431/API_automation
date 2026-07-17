@@ -1,0 +1,199 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "type": "object",
+
+  "required": [
+    "success",
+    "data"
+  ],
+
+  "properties": {
+
+    "success": {
+      "type": "boolean"
+    },
+
+    "data": {
+      "$ref": "#/definitions/ReviewData"
+    }
+
+  },
+
+  "definitions": {
+
+    "ReviewData": {
+
+      "type": "object",
+
+      "required": [
+        "product_id",
+        "reviews"
+      ],
+
+      "properties": {
+
+        "product_id": {
+          "type": "string"
+        },
+
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Review"
+          }
+        }
+
+      },
+
+      "additionalProperties": true
+    },
+
+    "Review": {
+
+      "type": "object",
+
+      "required": [
+        "id",
+        "rating",
+        "comment",
+        "approval",
+        "created_at",
+        "updated_at"
+      ],
+
+      "properties": {
+
+        "id": {
+          "type": "string"
+        },
+
+        "rating": {
+          "type": "integer"
+        },
+
+        "comment": {
+          "type": "string"
+        },
+
+        "approval": {
+          "type": "boolean"
+        },
+
+        "created_at": {
+          "type": "string"
+        },
+
+        "updated_at": {
+          "type": "string"
+        },
+
+        "deleted_at": {
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+
+        "customer": {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/Customer"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+
+      },
+
+      "additionalProperties": true
+    },
+
+    "Customer": {
+
+      "type": "object",
+
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "email",
+        "has_account"
+      ],
+
+      "properties": {
+
+        "id": {
+          "type": "string"
+        },
+
+        "company_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+
+        "first_name": {
+          "type": "string"
+        },
+
+        "last_name": {
+          "type": "string"
+        },
+
+        "email": {
+          "type": "string"
+        },
+
+        "phone": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+
+        "has_account": {
+          "type": "boolean"
+        },
+
+        "metadata": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+
+        "created_by": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+
+        "created_at": {
+          "type": "string"
+        },
+
+        "updated_at": {
+          "type": "string"
+        },
+
+        "deleted_at": {
+          "type": [
+            "null",
+            "string"
+          ]
+        }
+
+      },
+
+      "additionalProperties": true
+    }
+
+  },
+
+  "additionalProperties": true
+}

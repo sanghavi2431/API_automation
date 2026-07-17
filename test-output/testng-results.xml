@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="11" passed="11" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-07-17T18:04:35 IST" name="Suite" finished-at="2026-07-17T18:05:42 IST" duration-ms="67133">
+    <groups>
+    </groups>
+    <test started-at="2026-07-17T18:04:35 IST" name="Test" finished-at="2026-07-17T18:05:42 IST" duration-ms="67133">
+      <class name="cafeOrderFlowTest.NewUserOrderFlowTest">
+        <test-method signature="TC01_placeOrderTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:04:36 IST" name="TC01_placeOrderTest" data-provider="cafe" finished-at="2026-07-17T18:04:55 IST" duration-ms="19056" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, rating=3, collection_limit=50, vehicle_type=Scooter, mobileNo=3547893181, productName=420 SOAN PAPDI, country_code=in, promo_codes=DIS10, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, comment=Good product to purchase, postal_code=560023, expectedAmount=72.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_placeOrderTest -->
+        <test-method signature="TC01_placeOrderTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:04:55 IST" name="TC01_placeOrderTest" data-provider="cafe" finished-at="2026-07-17T18:05:04 IST" duration-ms="9161" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, rating=3, collection_limit=50, vehicle_type=Scooter, mobileNo=3547893181, productName=420 SOAN PAPDI, country_code=in, promo_codes=WOLOO_COINS, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, comment=Good product to purchase, postal_code=560023, expectedAmount=72.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_placeOrderTest -->
+        <test-method signature="TC01_placeOrderTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:04 IST" name="TC01_placeOrderTest" data-provider="cafe" finished-at="2026-07-17T18:05:13 IST" duration-ms="9146" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, rating=3, collection_limit=50, vehicle_type=Scooter, mobileNo=3547893181, productName=420 SOAN PAPDI, country_code=in, promo_codes=, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, comment=Good product to purchase, postal_code=560023, expectedAmount=80.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC01_placeOrderTest -->
+        <test-method signature="TC02_applyInvalidPromotionTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:14 IST" name="TC02_applyInvalidPromotionTest" data-provider="invalidPromocode" finished-at="2026-07-17T18:05:18 IST" duration-ms="4559" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, collection_limit=50, vehicle_type=Scooter, mobileNo=, productName=420 SOAN PAPDI, country_code=in, promo_codes=DIS100, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, postal_code=560023, expectedAmount=80.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC02_applyInvalidPromotionTest -->
+        <test-method signature="TC03_deletePromotionTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:19 IST" name="TC03_deletePromotionTest" data-provider="deletePromocode" finished-at="2026-07-17T18:05:24 IST" duration-ms="4859" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, collection_limit=50, vehicle_type=Scooter, mobileNo=, productName=420 SOAN PAPDI, country_code=in, promo_codes=DIS10, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, postal_code=560023, expectedAmount=80.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC03_deletePromotionTest -->
+        <test-method signature="TC04_deleteProductFromCartTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:24 IST" name="TC04_deleteProductFromCartTest" data-provider="deleteProductFromCart" finished-at="2026-07-17T18:05:28 IST" duration-ms="4154" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, collection_limit=50, vehicle_type=Scooter, mobileNo=, productName=420 SOAN PAPDI, country_code=in, promo_codes=DIS10, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, postal_code=560023, expectedAmount=72.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC04_deleteProductFromCartTest -->
+        <test-method signature="TC05_validateInsufficientInventoryTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:28 IST" name="TC05_validateInsufficientInventoryTest" data-provider="insufficientStock" finished-at="2026-07-17T18:05:31 IST" duration-ms="2717" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=100, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, collection_limit=50, vehicle_type=Scooter, mobileNo=3547893185, productName=420 SOAN PAPDI, country_code=in, promo_codes=DIS10, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, postal_code=560023, expectedAmount=80.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC05_validateInsufficientInventoryTest -->
+        <test-method signature="TC05_validateInsufficientInventoryTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:31 IST" name="TC05_validateInsufficientInventoryTest" data-provider="insufficientStock" finished-at="2026-07-17T18:05:34 IST" duration-ms="3054" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, collection_limit=50, vehicle_type=Scooter, mobileNo=3547893175, productName=AMUL VELVETT MILK CHOCOLATE 50RS, country_code=in, promo_codes=DIS10, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, postal_code=560023, expectedAmount=80.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC05_validateInsufficientInventoryTest -->
+        <test-method signature="TC06_deleteCartPaymentTest(java.util.Map)[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:34 IST" name="TC06_deleteCartPaymentTest" data-provider="deleteProductFromCart" finished-at="2026-07-17T18:05:41 IST" duration-ms="6907" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{Category_limit=200, quantity=1, city=Bengaluru, user_name=Dilip, address_1=No.42 Point 42, Tank Bund Road, Kempapura Agrahara, Bengaluru, sales_channel_id=sc_01KS2MRR22HSZGKHGRM03VR4BK, collection_limit=50, vehicle_type=Scooter, mobileNo=, productName=420 SOAN PAPDI, country_code=in, promo_codes=DIS10, province=Karnataka, vehicle_number=TN89ty9087, stock_location_id=sloc_01KSF3MFQW75MB0RGNYT21NXW7, shippingOption_name=Ghatkopar - Woloo Powder Room Shipping Option, postal_code=560023, expectedAmount=72.0}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC06_deleteCartPaymentTest -->
+        <test-method signature="TC07_invalidMobileNoValidationTest()[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:41 IST" name="TC07_invalidMobileNoValidationTest" finished-at="2026-07-17T18:05:41 IST" duration-ms="180" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC07_invalidMobileNoValidationTest -->
+        <test-method signature="TC08_invalidOTPValidationTest()[pri:0, instance:cafeOrderFlowTest.NewUserOrderFlowTest@3e6ef8ad]" started-at="2026-07-17T18:05:41 IST" name="TC08_invalidOTPValidationTest" finished-at="2026-07-17T18:05:42 IST" duration-ms="692" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC08_invalidOTPValidationTest -->
+      </class> <!-- cafeOrderFlowTest.NewUserOrderFlowTest -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

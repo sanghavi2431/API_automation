@@ -1,0 +1,280 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "categories",
+    "count",
+    "offset",
+    "limit"
+  ],
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/category"
+      }
+    },
+    "count": {
+      "type": "integer"
+    },
+    "offset": {
+      "type": "integer"
+    },
+    "limit": {
+      "type": "integer"
+    }
+  },
+
+  "$defs": {
+
+    "category": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "handle",
+        "rank",
+        "parent_category_id",
+        "created_at",
+        "updated_at",
+        "metadata",
+        "parent_category",
+        "category_children",
+        "sales_channels"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "handle": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "parent_category_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "metadata": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "parent_category": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/parentCategory"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "category_children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/categoryChild"
+          }
+        },
+        "sales_channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/salesChannel"
+          }
+        }
+      }
+    },
+
+    "parentCategory": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "handle",
+        "rank",
+        "parent_category_id",
+        "created_at",
+        "updated_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "handle": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "metadata": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "parent_category_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+
+    "categoryChild": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "handle",
+        "rank",
+        "parent_category_id",
+        "created_at",
+        "updated_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "handle": {
+          "type": "string"
+        },
+        "rank": {
+          "type": "integer"
+        },
+        "metadata": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "parent_category_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+
+    "salesChannel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "description",
+        "is_disabled",
+        "metadata",
+        "created_at",
+        "updated_at",
+        "deleted_at"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "is_disabled": {
+          "type": "boolean"
+        },
+        "metadata": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updated_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "deleted_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

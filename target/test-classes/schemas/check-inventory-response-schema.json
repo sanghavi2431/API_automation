@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CheckInventoryResponse",
+  "type": "object",
+  "properties": {
+    "success": { "type": "boolean" },
+    "message": { "type": "string" },
+    "data": { "$ref": "#/definitions/InventoryData" }
+  },
+  "required": ["success", "message", "data"],
+  "additionalProperties": true,
+
+  "definitions": {
+
+    "InventoryData": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/InventoryItem" }
+        }
+      },
+      "required": ["items"],
+      "additionalProperties": true
+    },
+
+    "InventoryItem": {
+      "type": "object",
+      "properties": {
+        "inventory_item_id": { "type": "string" },
+        "required_quantity": { "type": "integer" },
+        "allow_backorder": { "type": "boolean" },
+        "quantity": { "type": "integer" },
+        "location_ids": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      },
+      "required": [
+        "inventory_item_id", "required_quantity", "allow_backorder",
+        "quantity", "location_ids"
+      ],
+      "additionalProperties": true
+    }
+  }
+}
