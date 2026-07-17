@@ -1,26 +1,62 @@
-name: Check Deployment
+name: Check Deployment and Run API Automation
 
 on:
+  schedule:
+    - cron: '30 14 * * *'   # 8:00 PM IST
   workflow_dispatch:
 
 jobs:
-  check:
+  check-deployment:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download deployment file
+      - name: Checkout Automation Repository
+        uses: actions/checkout@v4
+        with:
+          ref: cafe
+
+      - name: Set up Java 11
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '11'
+          cache: maven
+
+      - name: Download Deployment File
         run: |
-          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/cafe/last-deployment.json.txt
-      - name: Check deployment date
+          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/whms/last-deployment.json
+
+          echo "Deployment File:"
+          cat last-deployment.json
+
+      - name: Check Deployment Date
+        id: deployment-check
         run: |
-          DEPLOY_DATE=$(grep -o '[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}' last-deployment.json)
-          TODAY=$(date +%F)
+          DEPLOY_DATE=$(grep -oP '"date"\s*:\s*"\K[^"]+' last-deployment.json)
+          TODAY=$(date -u +%F)
 
           echo "Deployment Date: $DEPLOY_DATE"
-          echo "Today's Date: $TODAY"
+          echo "Today's Date (UTC): $TODAY"
 
           if [ "$DEPLOY_DATE" = "$TODAY" ]; then
             echo "Deployment happened today."
+            echo "run_tests=true" >> $GITHUB_OUTPUT
           else
             echo "No deployment today."
+            echo "run_tests=false" >> $GITHUB_OUTPUT
           fi
+
+      - name: Run API Automation
+        if: steps.deployment-check.outputs.run_tests == 'true'
+        run: |
+          mvn clean test -DsuiteXmlFile=testng.xml
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: API-Automation-Reports
+          path: |
+            target/
+            test-output/
+          if-no-files-found: ignore
