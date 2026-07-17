@@ -10,8 +10,7 @@ jobs:
     steps:
       - name: Download deployment file
         run: |
-          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/last-deployment.json.txt
-
+          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/cafe/last-deployment.json.txt
       - name: Check deployment date
         run: |
           DEPLOY_DATE=$(grep -o '[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}' last-deployment.json)
