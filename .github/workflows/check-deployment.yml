@@ -1,0 +1,27 @@
+name: Check Deployment
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download deployment file
+        run: |
+          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/last-deployment.json.txt
+
+      - name: Check deployment date
+        run: |
+          DEPLOY_DATE=$(grep -o '[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}' last-deployment.json)
+          TODAY=$(date +%F)
+
+          echo "Deployment Date: $DEPLOY_DATE"
+          echo "Today's Date: $TODAY"
+
+          if [ "$DEPLOY_DATE" = "$TODAY" ]; then
+            echo "Deployment happened today."
+          else
+            echo "No deployment today."
+          fi
