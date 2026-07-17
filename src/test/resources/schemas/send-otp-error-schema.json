@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+
+  "title": "Send OTP Bad Request Response",
+
+  "type": "object",
+
+  "required": [
+    "details",
+    "code",
+    "message"
+  ],
+
+  "properties": {
+
+    "details": {
+      "type": "string"
+    },
+
+    "code": {
+      "type": "integer"
+    },
+
+    "message": {
+      "type": "string"
+    }
+
+  },
+
+  "additionalProperties": false
+}

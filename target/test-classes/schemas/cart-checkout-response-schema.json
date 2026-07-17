@@ -1,0 +1,699 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "CartCheckoutResponse",
+	"type": "object",
+	"properties": {
+		"cart": {
+			"$ref": "#/definitions/CartCheckout"
+		}
+	},
+	"required": [
+		"cart"
+	],
+	"additionalProperties": true,
+	"definitions": {
+		"CartCheckout": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"currency_code": {
+					"type": "string"
+				},
+				"email": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"locale": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"region_id": {
+					"type": "string"
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"completed_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"total": {
+					"type": "number"
+				},
+				"subtotal": {
+					"type": "number"
+				},
+				"tax_total": {
+					"type": "number"
+				},
+				"discount_total": {
+					"type": "number"
+				},
+				"discount_subtotal": {
+					"type": "number"
+				},
+				"discount_tax_total": {
+					"type": "number"
+				},
+				"original_total": {
+					"type": "number"
+				},
+				"original_tax_total": {
+					"type": "number"
+				},
+				"item_total": {
+					"type": "number"
+				},
+				"item_subtotal": {
+					"type": "number"
+				},
+				"item_tax_total": {
+					"type": "number"
+				},
+				"item_discount_total": {
+					"type": "number"
+				},
+				"original_item_total": {
+					"type": "number"
+				},
+				"original_item_subtotal": {
+					"type": "number"
+				},
+				"original_item_tax_total": {
+					"type": "number"
+				},
+				"shipping_total": {
+					"type": "number"
+				},
+				"shipping_subtotal": {
+					"type": "number"
+				},
+				"shipping_tax_total": {
+					"type": "number"
+				},
+				"shipping_discount_total": {
+					"type": "number"
+				},
+				"original_shipping_tax_total": {
+					"type": "number"
+				},
+				"original_shipping_subtotal": {
+					"type": "number"
+				},
+				"original_shipping_total": {
+					"type": "number"
+				},
+				"credit_line_subtotal": {
+					"type": "number"
+				},
+				"credit_line_tax_total": {
+					"type": "number"
+				},
+				"credit_line_total": {
+					"type": "number"
+				},
+				"metadata": {
+					"oneOf": [
+						{
+							"$ref": "#/definitions/CartMetadata"
+						},
+						{
+							"type": "null"
+						}
+					]
+				},
+				"sales_channel_id": {
+					"type": "string"
+				},
+				"shipping_address_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"billing_address_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"customer_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"items": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/CartItemCheckout"
+					}
+				},
+				"shipping_methods": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ShippingMethod"
+					}
+				},
+				"shipping_address": {
+					"$ref": "#/definitions/Address"
+				},
+				"billing_address": {
+					"oneOf": [
+						{
+							"$ref": "#/definitions/Address"
+						},
+						{
+							"type": "null"
+						}
+					]
+				},
+				"credit_lines": {
+					"type": "array"
+				},
+				"customer": {
+					"$ref": "#/definitions/Customer"
+				},
+				"region": {
+					"$ref": "#/definitions/Region"
+				},
+				"promotions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Promotion"
+					}
+				}
+			},
+			"required": [
+				"id",
+				"currency_code",
+				"region_id",
+				"total",
+				"subtotal",
+				"items",
+				"shipping_address",
+				"customer",
+				"region"
+			],
+			"additionalProperties": true
+		},
+		"CartMetadata": {
+			"type": "object",
+			"properties": {
+				"VehicleDetails": {
+					"$ref": "#/definitions/VehicleDetails"
+				}
+			},
+			"additionalProperties": true
+		},
+		"VehicleDetails": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"user_name": {
+					"type": "string"
+				},
+				"vehicle_type": {
+					"type": "string"
+				},
+				"vehicle_number": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id",
+				"phone",
+				"user_name",
+				"vehicle_type",
+				"vehicle_number"
+			],
+			"additionalProperties": true
+		},
+		"CartItemCheckout": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"thumbnail": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"variant_id": {
+					"type": "string"
+				},
+				"product_id": {
+					"type": "string"
+				},
+				"product_type_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"product_title": {
+					"type": "string"
+				},
+				"product_description": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"product_subtitle": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"product_type": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"product_collection": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"product_handle": {
+					"type": "string"
+				},
+				"variant_sku": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"variant_barcode": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"variant_title": {
+					"type": "string"
+				},
+				"requires_shipping": {
+					"type": "boolean"
+				},
+				"metadata": {
+					"type": [
+						"object",
+						"null"
+					]
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"title": {
+					"type": "string"
+				},
+				"quantity": {
+					"type": "integer"
+				},
+				"unit_price": {
+					"type": "number"
+				},
+				"compare_at_unit_price": {
+					"type": [
+						"number",
+						"null"
+					]
+				},
+				"is_tax_inclusive": {
+					"type": "boolean"
+				},
+				"tax_lines": {
+					"type": "array"
+				},
+				"adjustments": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Adjustment"
+					}
+				},
+				"product": {
+					"$ref": "#/definitions/CartItemProduct"
+				}
+			},
+			"required": [
+				"id",
+				"variant_id",
+				"product_id",
+				"product_title",
+				"product_handle",
+				"quantity",
+				"unit_price",
+				"is_tax_inclusive",
+				"product"
+			],
+			"additionalProperties": true
+		},
+		"Adjustment": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"code": {
+					"type": "string"
+				},
+				"promotion_id": {
+					"type": "string"
+				},
+				"amount": {
+					"type": "number"
+				},
+				"is_tax_inclusive": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"id",
+				"code",
+				"promotion_id",
+				"amount"
+			],
+			"additionalProperties": true
+		},
+		"CartItemProduct": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"collection_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"type_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"categories": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"id": {
+								"type": "string"
+							}
+						},
+						"required": [
+							"id"
+						],
+						"additionalProperties": true
+					}
+				},
+				"tags": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"required": [
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"ShippingMethod": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"amount": {
+					"type": "number"
+				},
+				"is_tax_inclusive": {
+					"type": "boolean"
+				},
+				"shipping_option_id": {
+					"type": "string"
+				},
+				"tax_lines": {
+					"type": "array"
+				},
+				"adjustments": {
+					"type": "array"
+				}
+			},
+			"required": [
+				"id",
+				"amount",
+				"shipping_option_id"
+			],
+			"additionalProperties": true
+		},
+		"Promotion": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"code": {
+					"type": "string"
+				},
+				"is_automatic": {
+					"type": "boolean"
+				},
+				"is_tax_inclusive": {
+					"type": "boolean"
+				},
+				"application_method": {
+					"$ref": "#/definitions/ApplicationMethod"
+				}
+			},
+			"required": [
+				"id",
+				"code",
+				"application_method"
+			],
+			"additionalProperties": true
+		},
+		"ApplicationMethod": {
+			"type": "object",
+			"properties": {
+				"value": {
+					"type": "number"
+				},
+				"type": {
+					"type": "string"
+				},
+				"currency_code": {
+					"type": "string"
+				},
+				"id": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"value",
+				"type",
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"Address": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"first_name": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"last_name": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"company": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"address_1": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"address_2": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"city": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"postal_code": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"country_code": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"province": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"phone": {
+					"type": [
+						"string",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"country_code"
+			],
+			"additionalProperties": true
+		},
+		"Customer": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"email": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"groups": {
+					"type": "array"
+				}
+			},
+			"required": [
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"Region": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"currency_code": {
+					"type": "string"
+				},
+				"automatic_taxes": {
+					"type": "boolean"
+				},
+				"countries": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/Country"
+					}
+				}
+			},
+			"required": [
+				"id",
+				"name",
+				"currency_code",
+				"countries"
+			],
+			"additionalProperties": true
+		},
+		"Country": {
+			"type": "object",
+			"properties": {
+				"iso_2": {
+					"type": "string"
+				},
+				"iso_3": {
+					"type": "string"
+				},
+				"num_code": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"display_name": {
+					"type": "string"
+				},
+				"region_id": {
+					"type": "string"
+				},
+				"metadata": {
+					"type": [
+						"object",
+						"null"
+					]
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"deleted_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"iso_2",
+				"iso_3",
+				"name",
+				"region_id"
+			],
+			"additionalProperties": true
+		}
+	}
+}

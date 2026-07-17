@@ -1,0 +1,61 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "RestockSubscriptionListResponse",
+	"type": "object",
+	"properties": {
+		"result": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/RestockSubscription"
+			}
+		}
+	},
+	"required": [
+		"result"
+	],
+	"additionalProperties": true,
+	"definitions": {
+		"RestockSubscription": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"variant_id": {
+					"type": "string"
+				},
+				"sales_channel_id": {
+					"type": "string"
+				},
+				"phone": {
+					"type": "string"
+				},
+				"customer_id": {
+					"type": "string"
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"deleted_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"variant_id",
+				"sales_channel_id",
+				"phone",
+				"customer_id",
+				"created_at",
+				"updated_at"
+			],
+			"additionalProperties": true
+		}
+	}
+}
