@@ -24,7 +24,7 @@ jobs:
 
       - name: Download Deployment File
         run: |
-          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/whms/last-deployment.json
+          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/cafe/last-deployment.json
 
           echo "Deployment File:"
           cat last-deployment.json
