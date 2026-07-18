@@ -2,7 +2,7 @@ name: Check Deployment and Run API Automation
 
 on:
   schedule:
-    - cron: '30 14 * * *'   # 8:00 PM IST
+    - cron: '30 14 * * *' # 8:00 PM IST
   workflow_dispatch:
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
 
       - name: Download Deployment File
         run: |
-          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/cafe/last-deployment.json
+          curl -o last-deployment.json https://storage.googleapis.com/api-automation-trigger/whms/last-deployment.json
 
           echo "Deployment File:"
           cat last-deployment.json
@@ -40,10 +40,10 @@ jobs:
 
           if [ "$DEPLOY_DATE" = "$TODAY" ]; then
             echo "Deployment happened today."
-            echo "run_tests=true" >> $GITHUB_OUTPUT
+            echo "run_tests=true" >> "$GITHUB_OUTPUT"
           else
             echo "No deployment today."
-            echo "run_tests=false" >> $GITHUB_OUTPUT
+            echo "run_tests=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Run API Automation
@@ -52,7 +52,7 @@ jobs:
           mvn clean test -DsuiteXmlFile=testng.xml
 
       - name: Upload Test Reports
-        if: always()
+        if: steps.deployment-check.outputs.run_tests == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: API-Automation-Reports
