@@ -32,6 +32,12 @@ jobs:
       - name: Check Deployment Date
         id: deployment-check
         run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "Manual run detected."
+            echo "run_tests=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           DEPLOY_DATE=$(grep -oP '"date"\s*:\s*"\K[^"]+' last-deployment.json)
           TODAY=$(date -u +%F)
 
