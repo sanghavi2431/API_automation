@@ -1,0 +1,47 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"required": [
+		"review"
+	],
+	"properties": {
+		"review": {
+			"type": "object",
+			"required": [
+				"id",
+				"rating",
+				"comment",
+				"approval",
+				"created_at",
+				"updated_at",
+				"deleted_at"
+			],
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"rating": {
+					"type": "integer"
+				},
+				"comment": {
+					"type": "string"
+				},
+				"approval": {
+					"type": "boolean"
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"deleted_at": {
+					"type": [
+						"null",
+						"string"
+					]
+				}
+			}
+		}
+	}
+}

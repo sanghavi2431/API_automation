@@ -1,0 +1,221 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "vendor",
+    "stock_location",
+    "sales_channel",
+    "publishable_api_key"
+  ],
+  "properties": {
+    "vendor": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "name",
+        "address",
+        "city",
+        "pincode",
+        "latitude",
+        "longitude",
+        "service_radius_km",
+        "operating_hours",
+        "status",
+        "vasy_erp_branch_code"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "city": {
+          "type": "string"
+        },
+        "pincode": {
+          "type": "string"
+        },
+        "latitude": {
+          "type": "number"
+        },
+        "longitude": {
+          "type": "number"
+        },
+        "service_radius_km": {
+          "type": "number"
+        },
+        "operating_hours": {
+          "type": "object",
+          "required": [
+            "monday",
+            "tuesday",
+            "wednesday",
+            "thursday",
+            "friday",
+            "saturday",
+            "sunday"
+          ],
+          "properties": {
+            "monday": {
+              "$ref": "#/definitions/dayHours"
+            },
+            "tuesday": {
+              "$ref": "#/definitions/dayHours"
+            },
+            "wednesday": {
+              "$ref": "#/definitions/dayHours"
+            },
+            "thursday": {
+              "$ref": "#/definitions/dayHours"
+            },
+            "friday": {
+              "$ref": "#/definitions/dayHours"
+            },
+            "saturday": {
+              "$ref": "#/definitions/dayHours"
+            },
+            "sunday": {
+              "$ref": "#/definitions/dayHours"
+            }
+          },
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string"
+        },
+        "vasy_erp_branch_code": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "stock_location": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "address",
+        "metadata"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "address": {
+          "type": "object",
+          "required": [
+            "id",
+            "address_1",
+            "address_2",
+            "city",
+            "country_code",
+            "postal_code",
+            "phone"
+          ],
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "address_1": {
+              "type": "string"
+            },
+            "address_2": {
+              "type": "string"
+            },
+            "city": {
+              "type": "string"
+            },
+            "country_code": {
+              "type": "string"
+            },
+            "postal_code": {
+              "type": "string"
+            },
+            "phone": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "metadata": {
+          "type": "object",
+          "required": [
+            "latitude",
+            "longitude",
+            "estimateDeliveryTime"
+          ],
+          "properties": {
+            "latitude": {
+              "type": "number"
+            },
+            "longitude": {
+              "type": "number"
+            },
+            "estimateDeliveryTime": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "sales_channel": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "description",
+        "is_disabled"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "is_disabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "publishable_api_key": {
+      "type": "string"
+    }
+  },
+  "definitions": {
+    "dayHours": {
+      "type": "object",
+      "required": [
+        "open",
+        "close"
+      ],
+      "properties": {
+        "open": {
+          "type": "string"
+        },
+        "close": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

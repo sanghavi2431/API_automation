@@ -1,0 +1,520 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "ShippingOptionsResponse",
+	"type": "object",
+	"properties": {
+		"shipping_options": {
+			"type": "array",
+			"items": {
+				"$ref": "#/definitions/ShippingOption"
+			}
+		}
+	},
+	"required": [
+		"shipping_options"
+	],
+	"additionalProperties": true,
+	"definitions": {
+		"ShippingOption": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"price_type": {
+					"type": "string"
+				},
+				"service_zone_id": {
+					"type": "string"
+				},
+				"shipping_profile_id": {
+					"type": "string"
+				},
+				"provider_id": {
+					"type": "string"
+				},
+				"data": {},
+				"service_zone": {
+					"$ref": "#/definitions/ServiceZone"
+				},
+				"type": {
+					"$ref": "#/definitions/ShippingOptionType"
+				},
+				"provider": {
+					"$ref": "#/definitions/ShippingProvider"
+				},
+				"rules": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ShippingRule"
+					}
+				},
+				"calculated_price": {
+					"$ref": "#/definitions/CalculatedPrice"
+				},
+				"prices": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/ShippingPrice"
+					}
+				},
+				"amount": {
+					"type": "number"
+				},
+				"is_tax_inclusive": {
+					"type": "boolean"
+				},
+				"insufficient_inventory": {
+					"type": "boolean"
+				},
+				"vendor_name": {
+					"type": "string"
+				},
+				"vendor_id": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id",
+				"name",
+				"price_type",
+				"service_zone_id",
+				"amount",
+				"calculated_price",
+				"vendor_name",
+				"vendor_id"
+			],
+			"additionalProperties": true
+		},
+		"ServiceZone": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"fulfillment_set_id": {
+					"type": "string"
+				},
+				"fulfillment_set": {
+					"$ref": "#/definitions/FulfillmentSet"
+				}
+			},
+			"required": [
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"FulfillmentSet": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"type": {
+					"type": "string"
+				},
+				"location": {
+					"$ref": "#/definitions/FulfillmentLocation"
+				}
+			},
+			"required": [
+				"id",
+				"type"
+			],
+			"additionalProperties": true
+		},
+		"FulfillmentLocation": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"address": {
+					"$ref": "#/definitions/LocationAddress"
+				}
+			},
+			"required": [
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"LocationAddress": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"address_1": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"address_2": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"company": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"city": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"country_code": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"phone": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"province": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"postal_code": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"metadata": {
+					"type": [
+						"object",
+						"null"
+					]
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"deleted_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"ShippingOptionType": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"description": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"code": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id",
+				"label",
+				"code"
+			],
+			"additionalProperties": true
+		},
+		"ShippingProvider": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"is_enabled": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"id",
+				"is_enabled"
+			],
+			"additionalProperties": true
+		},
+		"ShippingRule": {
+			"type": "object",
+			"properties": {
+				"attribute": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				},
+				"operator": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"attribute",
+				"value",
+				"operator"
+			],
+			"additionalProperties": true
+		},
+		"CalculatedPrice": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"is_calculated_price_price_list": {
+					"type": "boolean"
+				},
+				"is_calculated_price_tax_inclusive": {
+					"type": "boolean"
+				},
+				"calculated_amount": {
+					"type": "number"
+				},
+				"raw_calculated_amount": {
+					"$ref": "#/definitions/RawAmount"
+				},
+				"is_original_price_price_list": {
+					"type": "boolean"
+				},
+				"is_original_price_tax_inclusive": {
+					"type": "boolean"
+				},
+				"original_amount": {
+					"type": "number"
+				},
+				"raw_original_amount": {
+					"$ref": "#/definitions/RawAmount"
+				},
+				"currency_code": {
+					"type": "string"
+				},
+				"calculated_price": {
+					"$ref": "#/definitions/PriceRef"
+				},
+				"original_price": {
+					"$ref": "#/definitions/PriceRef"
+				}
+			},
+			"required": [
+				"calculated_amount",
+				"raw_calculated_amount",
+				"original_amount",
+				"raw_original_amount",
+				"currency_code"
+			],
+			"additionalProperties": true
+		},
+		"RawAmount": {
+			"type": "object",
+			"properties": {
+				"value": {
+					"type": "string"
+				},
+				"precision": {
+					"type": "integer"
+				}
+			},
+			"required": [
+				"value",
+				"precision"
+			],
+			"additionalProperties": true
+		},
+		"PriceRef": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"price_list_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"price_list_type": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"min_quantity": {
+					"type": [
+						"integer",
+						"null"
+					]
+				},
+				"max_quantity": {
+					"type": [
+						"integer",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"id"
+			],
+			"additionalProperties": true
+		},
+		"ShippingPrice": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"title": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"currency_code": {
+					"type": "string"
+				},
+				"rules_count": {
+					"type": "integer"
+				},
+				"price_set_id": {
+					"type": "string"
+				},
+				"price_list_id": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"price_list": {},
+				"raw_amount": {
+					"$ref": "#/definitions/RawAmount"
+				},
+				"raw_min_quantity": {
+					"oneOf": [
+						{
+							"$ref": "#/definitions/RawAmount"
+						},
+						{
+							"type": "null"
+						}
+					]
+				},
+				"raw_max_quantity": {
+					"oneOf": [
+						{
+							"$ref": "#/definitions/RawAmount"
+						},
+						{
+							"type": "null"
+						}
+					]
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"deleted_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				},
+				"price_rules": {
+					"type": "array",
+					"items": {
+						"$ref": "#/definitions/PriceRule"
+					}
+				},
+				"amount": {
+					"type": "number"
+				},
+				"min_quantity": {
+					"type": [
+						"integer",
+						"null"
+					]
+				},
+				"max_quantity": {
+					"type": [
+						"integer",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"currency_code",
+				"amount"
+			],
+			"additionalProperties": true
+		},
+		"PriceRule": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"attribute": {
+					"type": "string"
+				},
+				"value": {
+					"type": "string"
+				},
+				"operator": {
+					"type": "string"
+				},
+				"priority": {
+					"type": "integer"
+				},
+				"price_id": {
+					"type": "string"
+				},
+				"created_at": {
+					"type": "string"
+				},
+				"updated_at": {
+					"type": "string"
+				},
+				"deleted_at": {
+					"type": [
+						"string",
+						"null"
+					]
+				}
+			},
+			"required": [
+				"id",
+				"attribute",
+				"value",
+				"operator"
+			],
+			"additionalProperties": true
+		}
+	}
+}

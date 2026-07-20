@@ -1,0 +1,175 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>loo_api_automation</groupId>
+  <artifactId>loo_api_automation</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+ 
+
+  <!-- Java version (AWS Device Farm = Java 11) -->
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.release>17</maven.compiler.release>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+
+    <!-- ===== Core API Automation ===== -->
+
+    <!-- RestAssured: core HTTP client + fluent assertions for API testing -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>rest-assured</artifactId>
+      <version>5.4.0</version>
+    </dependency>
+
+    <!-- JSON Schema validation (contract testing) -->
+    <dependency>
+      <groupId>io.rest-assured</groupId>
+      <artifactId>json-schema-validator</artifactId>
+      <version>5.3.0</version>
+    </dependency>
+
+    <!-- TestNG: test runner, annotations, assertions, suites -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.10.1</version>
+    </dependency>
+
+    <!-- Jackson: JSON <-> POJO serialization/deserialization -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.3</version>
+    </dependency>
+
+    <!-- JsonPath: extract values from JSON responses -->
+    <dependency>
+      <groupId>com.jayway.jsonpath</groupId>
+      <artifactId>json-path</artifactId>
+      <version>2.8.0</version>
+    </dependency>
+
+    <!-- Lombok: reduces boilerplate in POJO/DTO request-response models -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.42</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- ===== Utilities / Test Data ===== -->
+
+    <!-- Commons Lang: string utils, random data helpers -->
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>3.14.0</version>
+    </dependency>
+
+    <!-- JavaFaker: generate realistic fake test data -->
+    <dependency>
+      <groupId>com.github.javafaker</groupId>
+      <artifactId>javafaker</artifactId>
+      <version>0.12</version>
+    </dependency>
+
+    <!-- Guava: extra collection utilities -->
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>31.1-jre</version>
+    </dependency>
+
+    <!-- ===== Logging ===== -->
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.30</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.2.11</version>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <version>1.2.11</version>
+    </dependency>
+
+    <!-- ===== Reporting ===== -->
+
+    <!-- Extent Reports: HTML test execution reports -->
+    <dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>5.0.9</version>
+    </dependency>
+
+    <!-- ===== Excel (only if reading test data from .xlsx) ===== -->
+
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+  </dependencies>
+
+<build>
+    <plugins>
+
+        <!-- Java Compiler -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.13.0</version>
+
+            <configuration>
+                <release>17</release>
+            </configuration>
+        </plugin>
+
+        <!-- TestNG Execution -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.1.2</version>
+
+            <configuration>
+
+                <!-- Don't fail when running a single test -->
+                <failIfNoTests>false</failIfNoTests>
+
+                <!-- Report location -->
+                <reportsDirectory>
+                    ${project.build.directory}/surefire-reports
+                </reportsDirectory>
+
+                <!-- JVM -->
+                <forkCount>1</forkCount>
+                <reuseForks>true</reuseForks>
+
+                <!-- Useful JVM args -->
+                <argLine>
+                    -Dfile.encoding=UTF-8
+                </argLine>
+
+            </configuration>
+
+        </plugin>
+
+    </plugins>
+</build>
+
+</project>
