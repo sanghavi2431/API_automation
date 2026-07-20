@@ -3,10 +3,12 @@ on:
   schedule:
     - cron: '30 14 * * *' # 8:00 PM IST
   workflow_dispatch:
+
 jobs:
   check-deployment:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout Automation Repository
         uses: actions/checkout@v4
         with:
@@ -53,6 +55,8 @@ jobs:
       - name: Run API Automation
         id: api-tests
         if: steps.deployment-check.outputs.run_tests == 'true'
+        env:
+          TZ: Asia/Kolkata
         run: |
           mvn clean test -DsuiteXmlFile=testng.xml
         continue-on-error: true
@@ -64,3 +68,22 @@ jobs:
           name: Execution-Reports
           path: executionReports
           if-no-files-found: ignore
+
+      - name: Send Report via Email
+        if: always() && steps.deployment-check.outputs.run_tests == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "API Automation Report - ${{ github.run_id }}"
+          to: sanghavij243@gmail.com
+          from: CI Bot <${{ secrets.EMAIL_USERNAME }}>
+          body: |
+            API Automation test run completed.
+            Branch tested: opt-cafe
+            Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+            Full Extent Report is attached — please check for pass/fail details.
+          attachments: executionReports/*.html
