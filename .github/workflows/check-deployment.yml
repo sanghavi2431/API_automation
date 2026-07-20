@@ -78,11 +78,10 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "API Automation Report - ${{ github.run_id }}"
-          to: sanghavij243@gmail.com
+          to: sanghavij243@gmail.com,dilip.c@testyantra.in
           from: CI Bot <${{ secrets.EMAIL_USERNAME }}>
           body: |
             API Automation test run completed.
-            Branch tested: opt-cafe
             Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
             Full Extent Report is attached — please check for pass/fail details.
