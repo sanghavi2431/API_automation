@@ -57,12 +57,18 @@ jobs:
         run: |
           mvn clean test -DsuiteXmlFile=testng.xml
 
-      - name: Upload Test Reports
+      - name: Upload Surefire Reports
         if: steps.deployment-check.outputs.run_tests == 'true'
         uses: actions/upload-artifact@v4
         with:
-          name: API-Automation-Reports
-          path: |
-            target/
-            test-output/
+          name: Surefire-Reports
+          path: target/surefire-reports
+          if-no-files-found: ignore
+
+      - name: Upload Extent Reports
+        if: steps.deployment-check.outputs.run_tests == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: Execution-Reports
+          path: test-output
           if-no-files-found: ignore
