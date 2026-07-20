@@ -21,7 +21,7 @@ jobs:
 
       - name: Clean old report directories
         run: |
-          rm -rf test-output executionReports target/surefire-reports
+          rm -rf executionReports target/surefire-reports
           echo "Old report directories cleaned."
 
       - name: Download Deployment File
@@ -57,26 +57,10 @@ jobs:
           mvn clean test -DsuiteXmlFile=testng.xml
         continue-on-error: true
 
-      - name: Debug - list generated files
-        if: always() && steps.deployment-check.outputs.run_tests == 'true'
-        run: |
-          echo "=== Searching for HTML report files ==="
-          find . -iname "*.html" 2>/dev/null
-          echo ""
-          echo "=== Searching for report-related folders ==="
-          find . -type d -iname "*report*" 2>/dev/null
-          find . -type d -iname "test-output" 2>/dev/null
-          echo ""
-          echo "=== Full workspace root listing ==="
-          ls -la
-          echo ""
-          echo "=== Recursive listing (2 levels) ==="
-          find . -maxdepth 3 -type d
-
       - name: Upload Extent Reports
         if: always() && steps.deployment-check.outputs.run_tests == 'true'
         uses: actions/upload-artifact@v4
         with:
           name: Execution-Reports
-          path: test-output
+          path: executionReports
           if-no-files-found: ignore
